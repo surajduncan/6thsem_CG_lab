@@ -16,3 +16,22 @@ void draw_pixel(int x, int y)
 	glVertex2i(x, y);
 	glEnd();
 }
+void draw_line(int x1, int x2, int y1, int y2)
+{
+	int dx, dy, i, e, x, y, incx, incy, inc1, inc2;
+	dx = x2-x1;
+	dy = y2-y1;
+	if (dx < 0)
+		dx = -dx;
+	if (dy < 0)
+		dy = -dy;
+	
+	incx = 1;
+	if (x2 < x1)
+		incx = -1;
+	
+	incy = 1;
+	if (y2 < y1)
+		incy = -1;
+	
+	x = x1; y = y1;
