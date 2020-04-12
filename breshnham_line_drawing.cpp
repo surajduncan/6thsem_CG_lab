@@ -35,3 +35,22 @@ void draw_line(int x1, int x2, int y1, int y2)
 		incy = -1;
 	
 	x = x1; y = y1;
+	if (dx > dy) 
+	{
+		draw_pixel(x, y);
+		e = 2 * dy-dx;
+		inc1 = 2*(dy-dx);
+		inc2 = 2*dy;
+		for (i=0; i<dx; i++) 
+		{
+			if (e >= 0) 
+			{
+				y += incy;
+				e += inc1;
+			}
+			else
+				e += inc2;
+			x += incx;
+			draw_pixel(x, y);
+		}
+	}
