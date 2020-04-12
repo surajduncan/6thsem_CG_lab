@@ -54,3 +54,28 @@ void draw_line(int x1, int x2, int y1, int y2)
 			draw_pixel(x, y);
 		}
 	}
+	else
+	{
+		draw_pixel(x, y);
+		e = 2*dx-dy;
+		inc1 = 2*(dx-dy);
+		inc2 = 2*dx;
+		for (i=0; i<dy; i++)
+		{
+			if (e >= 0)
+			{
+				x += incx;
+				e += inc1;
+			}
+			else
+				e += inc2;
+			y += incy;
+			draw_pixel(x, y);
+		}
+	}
+}
+void myDisplay() 
+{
+	draw_line(x1, x2, y1, y2);
+	glFlush();
+}
