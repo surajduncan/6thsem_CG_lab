@@ -14,3 +14,15 @@ class wcPt2D
 typedef GLfloat Matrix3x3 [3][3];
 Matrix3x3 matComposite;
 const GLdouble pi = 3.14159;
+void init (void)
+{
+	glClearColor (1.0, 1.0, 1.0, 0.0);
+}
+
+void matrix3x3SetIdentity (Matrix3x3 matIdent3x3)
+{
+	GLint row, col;
+	for (row = 0; row < 3; row++)
+		for (col = 0; col < 3; col++)
+			matIdent3x3 [row][col] = (row == col);
+}
