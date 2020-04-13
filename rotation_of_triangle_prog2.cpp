@@ -46,3 +46,38 @@ void translate2D (GLfloat tx, GLfloat ty)
 	matTransl [1][2] = ty;
 	matrix3x3PreMultiply (matTransl, matComposite);
 }
+void rotate2D (wcPt2D pivotPt, GLfloat theta)
+{
+	Matrix3x3 matRot;
+	matrix3x3SetIdentity (matRot);
+	matRot [0][0] = cos (theta);
+	matRot [0][1] = -sin (theta);
+	matRot [0][2] = pivotPt.x * (1 - cos (theta)) +	pivotPt.y * sin (theta);
+	matRot [1][0] = sin (theta);
+	matRot [1][1] = cos (theta);
+	matRot [1][2] = pivotPt.y * (1 - cos (theta)) -	pivotPt.x * sin (theta);
+	matrix3x3PreMultiply (matRot, matComposite);
+}
+
+void scale2D (GLfloat sx, GLfloat sy, wcPt2D fixedPt)
+{
+	Matrix3x3 matScale;
+	matrix3x3SetIdentity (matScale);
+	matScale [0][0] = sx;
+	matScale [0][2] = (1 - sx) * fixedPt.x;
+	matScale [1][1] = sy;
+	matScale [1][2] = (1 - sy) * fixedPt.y;
+	matrix3x3PreMultiply (matScale, matComposite);
+}
+
+void transformVerts2D (GLint nVerts, wcPt2D * verts)
+{
+	GLint k;
+	GLfloat temp;
+	for (k = 0; k < nVerts; k++)
+	{
+		temp = matComposite [0][0] * verts [k].x + matComposite [0][1] * verts [k].y + matComposite [0][2];
+		verts [k].y = matComposite [1][0] * verts [k].x + matComposite [1][1] *	verts [k].y + matComposite [1][2];
+		verts [k].x = temp;
+	}
+}
