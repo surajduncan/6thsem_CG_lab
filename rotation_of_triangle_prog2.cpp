@@ -121,3 +121,25 @@ void displayFcn (void)
 	triangle (verts);
 	glFlush ( );
 }
+void winReshapeFcn (GLint newWidth, GLint newHeight)
+{
+	glMatrixMode (GL_PROJECTION);
+	glLoadIdentity ( );
+	gluOrtho2D (xwcMin, xwcMax, ywcMin, ywcMax);
+	glClear (GL_COLOR_BUFFER_BIT);
+}
+
+int main (int argc, char ** argv)
+{
+	glutInit (&argc, argv);
+	glutInitDisplayMode (GLUT_SINGLE | GLUT_RGB);
+	glutInitWindowPosition (50, 50);
+	glutInitWindowSize (winWidth, winHeight);
+	glutCreateWindow ("Geometric Transformation Sequence");
+	init ( );
+	glutDisplayFunc (displayFcn);
+	glutReshapeFunc (winReshapeFcn);
+	glutMainLoop ( );
+	return 0;
+}
+
