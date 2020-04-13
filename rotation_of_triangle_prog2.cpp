@@ -81,3 +81,43 @@ void transformVerts2D (GLint nVerts, wcPt2D * verts)
 		verts [k].x = temp;
 	}
 }
+void triangle (wcPt2D *verts)
+{
+	GLint k;
+	glBegin (GL_TRIANGLES);
+	for (k = 0; k < 3; k++)
+		glVertex2f (verts [k].x, verts [k].y);
+	glEnd ( );
+}
+
+void displayFcn (void)
+{
+	GLint nVerts = 3;
+	wcPt2D verts [3] = { {50.0, 25.0}, {150.0, 25.0}, {100.0, 100.0} };
+	wcPt2D centroidPt;
+	GLint k, xSum = 0, ySum = 0;
+	for (k = 0; k < nVerts; k++)
+	{
+		xSum += verts [k].x;
+		ySum += verts [k].y;
+	}
+	centroidPt.x = GLfloat (xSum) / GLfloat (nVerts);
+	centroidPt.y = GLfloat (ySum) / GLfloat (nVerts);
+	wcPt2D pivPt,fixedPt;
+	pivPt = centroidPt;
+	fixedPt = centroidPt;
+	GLfloat tx = 0.0, ty = 100.0;
+	GLfloat sx = 0.5, sy = 0.5;
+	GLdouble theta = pi/2.0;
+	glClear (GL_COLOR_BUFFER_BIT);
+	glColor3f (0.0, 0.0, 1.0);
+	triangle (verts);
+	matrix3x3SetIdentity (matComposite);
+	scale2D (sx, sy, fixedPt);
+	rotate2D (pivPt, theta);
+	translate2D (tx, ty);
+	transformVerts2D (nVerts, verts);
+	glColor3f (1.0, 0.0, 0.0);
+	triangle (verts);
+	glFlush ( );
+}
