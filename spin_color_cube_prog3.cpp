@@ -66,3 +66,6 @@ void main(int argc, char **argv)
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glVertexPointer(3,GL_FLOAT, 0, vertices);
 	glColorPointer(3, GL_FLOAT, 0, colors);
+	glColor3f(1.0,1.0,1.0);
+	glutMainLoop();
+}
