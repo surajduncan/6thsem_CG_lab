@@ -1,3 +1,4 @@
+//Draw a colour cube and spin it using OpenGL transformation matrices. Modelling a Coloured Cube
 #include<stdlib.h>
 #include<GL/glut.h>
 
