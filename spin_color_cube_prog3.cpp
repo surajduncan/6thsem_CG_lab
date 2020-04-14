@@ -51,3 +51,12 @@ void myReshape(int w, int h)
 		glOrtho(-2.0*(GLfloat)w/(GLfloat)h, 2.0*(GLfloat)w/(GLfloat)h, -2.0,2.0,-10.0,10.0);
 	glMatrixMode(GL_MODELVIEW);
 }
+void main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+	glutInitWindowSize(500,500);
+	glutCreateWindow("Spin a color cube");
+	glutReshapeFunc(myReshape);
+	glutDisplayFunc(display);
+	glutIdleFunc(spinCube);
