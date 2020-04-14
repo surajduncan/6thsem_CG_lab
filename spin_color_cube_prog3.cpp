@@ -60,3 +60,9 @@ void main(int argc, char **argv)
 	glutReshapeFunc(myReshape);
 	glutDisplayFunc(display);
 	glutIdleFunc(spinCube);
+	glutMouseFunc(mouse);
+	glEnable(GL_DEPTH_TEST);	
+	glEnableClientState(GL_COLOR_ARRAY);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glVertexPointer(3,GL_FLOAT, 0, vertices);
+	glColorPointer(3, GL_FLOAT, 0, colors);
