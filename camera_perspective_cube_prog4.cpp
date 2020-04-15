@@ -91,5 +91,25 @@ void myReshape(int w, int h)
 		glFrustum(-2.0,2.0,-2.0*(GLfloat)w/(GLfloat)h,2.0*(GLfloat)w/(GLfloat)h,2.0,20.0);
 	glMatrixMode(GL_MODELVIEW);
 }
+int main(int argc, char **argv)
+{
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB|GLUT_DEPTH);
+	glutInitWindowSize(500,500);
+	glutCreateWindow("color cuce");
+	glutReshapeFunc(myReshape);
+	glutDisplayFunc(display);
+	glutKeyboardFunc(keys);
+	glutMouseFunc(mouse);
+	glEnable(GL_DEPTH_TEST);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	glVertexPointer(3,GL_FLOAT,0,vertices);
+	glColorPointer(3,GL_FLOAT,0,colors);
+	glNormalPointer(GL_FLOAT,0,normals);
+	glColor3f(1.0,1.0,1.0);
+	glutMainLoop();
+}
 
 
