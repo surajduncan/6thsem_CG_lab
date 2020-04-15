@@ -80,4 +80,16 @@ void keys(unsigned char key, int x, int y)
 	glutPostRedisplay();
 }
 
+void myReshape(int w, int h)
+{
+	glViewport(0,0,w,h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	if(w<=h)
+		glFrustum(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,2.0*(GLfloat)h/(GLfloat)w,2.0,20.0);
+	else
+		glFrustum(-2.0,2.0,-2.0*(GLfloat)w/(GLfloat)h,2.0*(GLfloat)w/(GLfloat)h,2.0,20.0);
+	glMatrixMode(GL_MODELVIEW);
+}
+
 
