@@ -69,5 +69,15 @@ void mouse(int btn, int state, int x, int y)
 		theta[axis]-=360.0;
 	glutPostRedisplay();
 }
+void keys(unsigned char key, int x, int y)
+{
+	if(key=='x') viewer[0]-=1.0;
+	if(key=='X') viewer[0]+=1.0;
+	if(key=='y') viewer[1]-=1.0;
+	if(key=='Y') viewer[1]+=1.0;
+	if(key=='z') viewer[2]-=1.0;
+	if(key=='Z') viewer[2]+=1.0;
+	glutPostRedisplay();
+}
 
 
