@@ -63,3 +63,25 @@ void CohenSutherland(double x0, double y0, double x1, double y1)
 			}
 		}
 	}while(!done);
+	if(accept)
+	{
+		double sx=(xvmax-xvmin)/(xmax-xmin);
+		double sy=(yvmax-yvmin)/(ymax-ymin);
+		double vx0=xvmin+(x0-xmin)*sx;
+		double vy0=yvmin+(y0-ymin)*sy;
+		double vx1=xvmin+(x1-xmin)*sx;
+		double vy1=yvmin+(y1-ymin)*sy;
+		glColor3f(1.0,0.0,0.0);
+		glBegin(GL_LINE_LOOP);
+			glVertex2f(xvmin, yvmin);
+			glVertex2f(xvmax, yvmin);
+			glVertex2f(xvmax, yvmax);
+			glVertex2f(xvmin, yvmax);
+		glEnd();
+		glColor3f(0.0,0.0,1.0);
+		glBegin(GL_LINES);
+			glVertex2d(vx0,vy0);
+			glVertex2d(vx1,vy1);
+		glEnd();
+	}
+}
