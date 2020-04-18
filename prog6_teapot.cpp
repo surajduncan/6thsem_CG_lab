@@ -1,3 +1,7 @@
+o draw a simple shaded scene consisting of a tea pot on a table. Define suitably the position and properties of the light source along with the properties of the
+surfaces of the solid object used in the scene. <b>Lighting and Shading</b>
+
+
 #include<GL/glut.h>
 void wall(double thickness)
 {
