@@ -43,3 +43,23 @@ void table(double topwid, double topthick, double legthick, double leglen)
 	tableleg(legthick,leglen);
 	glPopMatrix();
 }
+void displaySolid(void)
+{
+	GLfloat mat_ambient[]={0.7f,0.7f,0.7f,1.0f};
+	GLfloat mat_diffuse[]={0.5f,0.5f,0.5f,1.0f};
+	GLfloat mat_specular[]={1.0f,1.0f,1.0f,1.0f};
+	GLfloat mat_shininess[]={50.0f};
+	glMaterialfv(GL_FRONT,GL_AMBIENT, mat_ambient);
+	glMaterialfv(GL_FRONT,GL_DIFFUSE, mat_diffuse);
+	glMaterialfv(GL_FRONT,GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT,GL_SHININESS, mat_shininess);
+
+	GLfloat lightintensity[]={0.7f,0.7f,0.7f,1.0f};
+	GLfloat lightposition[]={2.0f,6.0f,3.0f,0.0f};
+	glLightfv(GL_LIGHT0, GL_POSITION, lightposition);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightintensity);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	double winht=1.0;
+	glOrtho(-winht*64/48, winht*64/48, -winht, winht,0.1, 100.0);
