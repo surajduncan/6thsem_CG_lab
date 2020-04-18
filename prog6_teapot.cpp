@@ -7,3 +7,11 @@ void wall(double thickness)
 	glutSolidCube(1.0);
 	glPopMatrix();
 }
+void tableleg(double thick, double len)
+{
+	glPushMatrix();
+	glTranslated(0,len/2,0);
+	glScaled(thick, len, thick);
+	glutSolidCube(1.0);
+	glPopMatrix();
+}
