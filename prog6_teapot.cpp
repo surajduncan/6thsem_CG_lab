@@ -87,3 +87,20 @@ void displaySolid(void)
 	glPopMatrix();
 	glFlush();
 }
+void main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB|GLUT_DEPTH);
+	glutInitWindowPosition(50,50);
+	glutInitWindowSize(400,300);
+	glutCreateWindow("Shaded Scene");
+	glutDisplayFunc(displaySolid);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glShadeModel(GL_SMOOTH);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_NORMALIZE);
+	glClearColor(0.1,0.1,0.1,0.0);
+	glViewport(0,0,640,480);
+	glutMainLoop();
+}
