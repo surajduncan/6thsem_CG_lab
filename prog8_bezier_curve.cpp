@@ -43,3 +43,10 @@ void display()
 	glEnd();
 	glFlush();
 }
+void myinit()
+{
+	glClearColor(1.0,1.0,1.0,1.0);
+	glColor3f(1.0,0.0,0.0);
+	glPointSize(5.0);
+	gluOrtho2D(0.0,600,0.0,600.0);
+}
