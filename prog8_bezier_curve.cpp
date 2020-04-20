@@ -31,3 +31,15 @@ void display()
 	glBegin(GL_LINE_STRIP);
 		for(u=0;u<1.0;u+=0.01)
 		{
+				x=0;y=0;
+			for(k=0;k<4;k++)
+			{
+				blend=c[k]*pow(u,k)*pow(1-u,n-k);
+				x+=cp[k][0]*blend;
+				y+=cp[k][1]*blend;
+			}
+		glVertex2f(x,y);
+		}
+	glEnd();
+	glFlush();
+}
