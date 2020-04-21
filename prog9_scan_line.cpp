@@ -41,3 +41,24 @@ void draw_pixel(int x,int y)
 	glVertex2i(x,y);
 	glEnd();
 }
+void scanfill(float x1,float y1,float x2,float y2,float x3,float y3,float x4,float y4)
+{
+	int le[500],re[500];
+	int i,y;
+	for(i=0;i<500;i++)
+	{
+		le[i]=500;
+		re[i]=0;
+	}
+	edgedetect(x1,y1,x2,y2,le,re);
+	edgedetect(x2,y2,x3,y3,le,re);
+	edgedetect(x3,y3,x4,y4,le,re);
+	edgedetect(x4,y4,x1,y1,le,re);
+	for(y=0;y<500;y++)
+	{
+		if(le[y]<=re[y])
+			for(i=(int)le[y];i<(int)re[y];i++)
+				draw_pixel(i,y);
+	}
+}
+
