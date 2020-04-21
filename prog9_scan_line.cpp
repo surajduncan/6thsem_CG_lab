@@ -76,3 +76,12 @@ void display()
 	scanfill(x1,y1,x2,y2,x3,y3,x4,y4);
 	glFlush();
 }
+void myinit()
+{
+	glClearColor(1.0,1.0,1.0,1.0);
+	glColor3f(1.0,0.0,0.0);
+	glPointSize(1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0,499.0,0.0,499.0);
+}
