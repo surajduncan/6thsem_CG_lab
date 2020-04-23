@@ -1,3 +1,6 @@
+// Triangle rotation about a fixed point
+
+
 #include<stdio.h>
 #include<GL/glut.h>
 int x,y;
