@@ -51,3 +51,25 @@ void LineBres(int xstart, int ystart, int xend, int yend)
 		draw_pixel(x, y);
 	}
 }
+void Display()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+	glClearColor(0, 0, 0, 1);
+	LineBres(xstart, ystart, xend, yend);
+	glEnd();
+	glFlush();
+}
+
+int main(int argc, char** argv)
+{
+	printf("Enter (x1, y1, x2, y2)\n");
+	scanf("%d%d%d%d", &xstart, &ystart, &xend, &yend);
+	glutInit(&argc, argv);
+	glutInitWindowPosition(50, 50);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("Bresenham's Line Drawing");
+	init();
+	glutDisplayFunc(Display);
+	glutMainLoop();
+	return 0;
+}
