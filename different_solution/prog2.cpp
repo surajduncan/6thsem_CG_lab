@@ -92,3 +92,21 @@ void rotate_menu(int option)
 		where_to_rotate=3;
 	display();
 }
+int main(int argc,char **argv)
+{
+	printf("\nEnter fixed points for rotation (x,y) : ");
+	scanf("%d%d",&x,&y);
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
+	glutInitWindowSize(800,800);
+	glutInitWindowPosition(0,0);
+	glutCreateWindow("Rotate Created Triangle");
+		myInit();
+	glutDisplayFunc(display);
+	glutCreateMenu(rotate_menu);
+		glutAddMenuEntry("Rotate Around Origin",1);
+		glutAddMenuEntry("Rotate Around Fixed Points",2);
+		glutAddMenuEntry("Stop Rotation",3);
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+	glutMainLoop();
+}
