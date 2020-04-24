@@ -42,4 +42,11 @@ void colorcube()		//function used to color each face of the cube seperately
 	glColor3f(1, 0, 1);		// color of the back square
 	polygon(1, 5, 6, 2);	// drawing the back square
 }
+void spincube()
+{
+	t[ax] += 1;	// rotating the cube by 1 degree at a time on the given axis "ax" ( ax = 0 is x axis , ax =1 is y axis , ax =2 is z axis)
+	if (t[ax] == 360)
+		t[ax] -= 360;	// when the rotation along any axis reaches 360 reset the axis to 0
+	glutPostRedisplay();	// calling the display again..
+}
 
