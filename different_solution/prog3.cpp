@@ -27,3 +27,19 @@ void polygon(int a, int b, int c, int d)  // function used to draw one face of a
 	glVertex3fv(v[d]);
 	glEnd();
 }
+void colorcube()		//function used to color each face of the cube seperately
+{
+	glColor3f(0, 0, 1);		//color of front square
+	polygon(0, 1, 2, 3);	// drawing the front square
+	glColor3f(0, 1, 1);		// color of the left square
+	polygon(4, 5, 6, 7);	// drawing the left square
+	glColor3f(0, 1, 0);		// color of the right square
+	polygon(0, 1, 5, 4);	// drawing the right square
+	glColor3f(1, 0, 0);		// color of the top square
+	polygon(2, 6, 7, 3);	// drawing the top square
+	glColor3f(1, 1, 0);		// color of the bottom square
+	polygon(0, 4, 7, 3);	// drawing the bottom square
+	glColor3f(1, 0, 1);		// color of the back square
+	polygon(1, 5, 6, 2);	// drawing the back square
+}
+
