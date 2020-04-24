@@ -58,5 +58,33 @@ void mouse(int btn, int state, int x, int y)  // function is used to capture the
 	if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)// on right click, state of the right button is set to DOWN.. and ax=2
 		ax = 2;											//ie rotate along z axis
 }
+void display()	// display function
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //clears the color buffer and depth buffer
+	glClearColor(1, 1, 1, 1);	//sets the backround screen color
+	glLoadIdentity();	//loads identity matrix into modelview						//glrotatef(angle of rotation,x,y,z)
+	glRotatef(t[0], 1, 0, 0);	//rotate cube at an angle of t[0] degrees wrt vector(1,0,0)
+	glRotatef(t[1], 0, 1, 0);	//rotate cube at an angle of t[1] degrees wrt vector(0,1,0)
+	glRotatef(t[2], 0, 0, 1);	//rotate cube at an angle of t[2] degrees wrt vector(0,0,1)
+	colorcube();	// call the function to color each square of cube with different colors
+	glutSwapBuffers();
+	glFlush();
+}
+int main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE | GLUT_DEPTH); // no idea xD
+	glutInitWindowPosition(100, 100); // set window position
+	glutInitWindowSize(500, 500);	//set window size
+	glutCreateWindow("Cube rotation");
+	init();
+	glutIdleFunc(spincube);
+	glutMouseFunc(mouse);	// calls the mouse function... glutmousefunc captures your mouse activity
+	glEnable(GL_DEPTH_TEST);	//enabling the depth buffer
+	glutDisplayFunc(display);
+	glutMainLoop();
+	return 0;
+}
+
 
 
