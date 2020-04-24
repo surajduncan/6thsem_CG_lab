@@ -1,4 +1,4 @@
-
+//Draw a colour cube and spin it using OpenGL transformation matrices.
 
 
 
@@ -49,4 +49,14 @@ void spincube()
 		t[ax] -= 360;	// when the rotation along any axis reaches 360 reset the axis to 0
 	glutPostRedisplay();	// calling the display again..
 }
+void mouse(int btn, int state, int x, int y)  // function is used to capture the events of the mouse and rotate cube accordingly
+{
+	if (btn == GLUT_LEFT_BUTTON && state == GLUT_DOWN)	// on left click, state of the left button is set to DOWN ...and ax =0
+		ax = 0;											//ie rotate along x axis
+	if (btn == GLUT_MIDDLE_BUTTON && state == GLUT_DOWN)// on middle click, state of the middle button is set to DOWN .. and ax=1
+		ax = 1;											//ie rotate along y axis
+	if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)// on right click, state of the right button is set to DOWN.. and ax=2
+		ax = 2;											//ie rotate along z axis
+}
+
 
