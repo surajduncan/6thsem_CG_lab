@@ -52,3 +52,17 @@ void display(void)
 	glFlush();
 	glutSwapBuffers();
 }
+void mouse(int btn, int state, int x, int y)
+{
+	if(btn==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
+		axis=0;
+	if(btn==GLUT_RIGHT_BUTTON && state==GLUT_DOWN)
+		axis=1;
+	if(btn==GLUT_MIDDLE_BUTTON && state==GLUT_DOWN)
+		axis=2;
+	theta[axis]+=2.0;
+	
+	if(theta[axis]>360.0)
+		theta[axis]-=360.0;
+	glutPostRedisplay();
+}
