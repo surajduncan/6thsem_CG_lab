@@ -89,4 +89,17 @@ void CohenSutherland(double x0, double y0, double x1, double y1)
 		glEnd();
 	}
 }
+outcode ComputeOutCode(double x, double y)
+{
+	outcode code=0;
+	if(y > ymax)
+		code = TOP;
+	else if(y < ymin)
+		code = BOTTOM;
+	if(x > xmax)
+		code = RIGHT;
+	else if(x < xmin)
+		code = LEFT;
+	return code;
+}
 
