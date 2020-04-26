@@ -120,4 +120,12 @@ void display()
 	CohenSutherland(x0,y0,x1,y1);
 	glFlush();
 }
+void myinit()
+{
+	glClearColor(1.0,1.0,1.0,1.0);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(0.0,499.0,0.0,499.0);
+}
+
 
