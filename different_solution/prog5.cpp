@@ -1,4 +1,5 @@
 // cohen-sutherland algorithm
+//Clip a lines using Cohen-Sutherland algorithm
 
 
 #include<stdio.h>
