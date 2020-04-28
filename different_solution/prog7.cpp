@@ -9,4 +9,14 @@ point v[]={ {0.0, 0.0, 1.0},
 			{0.816497, -0.471405, -0.333333}};
 static GLfloat theta[] = {0.0,0.0,0.0};
 int n;
+void triangle( point a, point b, point c)
+{
+	glBegin(GL_POLYGON);
+	glNormal3fv(a);
+	glVertex3fv(a);
+	glVertex3fv(b);
+	glVertex3fv(c);
+	glEnd();
+}
+
 
