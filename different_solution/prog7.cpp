@@ -47,6 +47,14 @@ void tetrahedron( int m)
 	glColor3f(0.0,0.0,0.0);
 	divide_triangle(v[0], v[2], v[3], m);
 }
+void display(void)
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glLoadIdentity();
+	tetrahedron(n);
+	glFlush();
+}
+
 
 
 
