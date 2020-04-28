@@ -18,5 +18,25 @@ void triangle( point a, point b, point c)
 	glVertex3fv(c);
 	glEnd();
 }
+void divide_triangle(point a, point b, point c, int m)
+{
+	point v1, v2, v3;
+	int j;
+	if(m>0)
+	{
+		for(j=0; j<3; j++)
+			v1[j]=(a[j]+b[j])/2;
+		for(j=0; j<3; j++)
+			v2[j]=(a[j]+c[j])/2;
+		for(j=0; j<3; j++)
+			v3[j]=(b[j]+c[j])/2;
+		divide_triangle(a, v1, v2, m-1);
+		divide_triangle(c, v2, v3, m-1);
+		divide_triangle(b, v3, v1, m-1);
+	}
+	else(triangle(a,b,c));
+}
+
+
 
 
