@@ -66,6 +66,19 @@ void myReshape(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 	glutPostRedisplay();
 }
+void main(int argc, char **argv)
+{
+	printf(" No. of Divisions ? ");
+	scanf("%d",&n);
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("3D Gasket");
+	glutReshapeFunc(myReshape);
+	glutDisplayFunc(display);
+	glEnable(GL_DEPTH_TEST);
+	glClearColor (1.0, 1.0, 1.0, 1.0);
+	glutMainLoop();
 
 
 
