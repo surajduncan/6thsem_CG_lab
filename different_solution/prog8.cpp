@@ -14,4 +14,28 @@ void bezierCoefficients(int n,int *c)
 			c[k]/=i;
 	}
 }
+void display()
+{
+	int cp[4][2]={{10,10},{100,200},{200,50},{300,300}};
+	int c[4],k,n=3;
+	float x,y,u,blend;
+	bezierCoefficients(n,c);
+	glClear(GL_COLOR_BUFFER_BIT);
+		glColor3f(1.0,0.0,0.0);
+		glLineWidth(5.0);
+	glBegin(GL_LINE_STRIP);
+		for(u=0;u<1.0;u+=0.01)
+		{
+			x=0;y=0;
+			for(k=0;k<4;k++)
+			{
+				blend=c[k]*pow(u,k)*pow(1-u,n-k);
+				x+=cp[k][0]*blend;
+				y+=cp[k][1]*blend;
+			}
+		glVertex2f(x,y);
+		}
+	glEnd();
+	glFlush();
+}
 
