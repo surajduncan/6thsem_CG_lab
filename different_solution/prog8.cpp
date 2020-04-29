@@ -14,6 +14,7 @@ void bezierCoefficients(int n,int *c)
 			c[k]/=i;
 	}
 }
+
 void display()
 {
 	int cp[4][2]={{10,10},{100,200},{200,50},{300,300}};
@@ -57,3 +58,4 @@ int main(int argc, char ** argv)
 	myinit();
 	glutMainLoop();
 	return 0;
+}
