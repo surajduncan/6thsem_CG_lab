@@ -47,3 +47,13 @@ void myinit()
 	gluOrtho2D(0.0,600,0.0,600.0);
 }
 
+int main(int argc, char ** argv)
+{
+	glutInit(&argc,argv);
+	glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+	glutInitWindowSize(600,600);
+	glutCreateWindow("Bezier Curve");
+	glutDisplayFunc(display);
+	myinit();
+	glutMainLoop();
+	return 0;
