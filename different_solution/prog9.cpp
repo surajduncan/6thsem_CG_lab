@@ -70,5 +70,16 @@ void display()
 	}
 	glFlush();
 }
+void ScanMenu(int id)
+{
+	if (id == 1) {
+		flag = 1;
+	}
+	else if (id == 2) {
+		flag = 0;
+	}
+	else { exit(0); }
+	glutPostRedisplay();
+}
 
 
