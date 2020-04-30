@@ -32,4 +32,43 @@ void edge(int x0, int y0, int x1, int y1)
 		x += (1 / m);
 	}
 }
+void display()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glColor3f(0, 0, 1);
+	glBegin(GL_LINE_LOOP);
+	glVertex2f(200, 100);
+	glVertex2f(100, 200);
+	glVertex2f(200, 300);
+	glVertex2f(300, 200);
+	glEnd();
+	for (int i = 0; i<500; i++)
+	{
+		le[i] = 500;
+		re[i] = 0;
+	}
+	edge(200, 100, 100, 200);
+	edge(100, 200, 200, 300);
+	edge(200, 300, 300, 200);
+	edge(300, 200, 200, 100);
+	if (flag == 1)
+	{
+		for (int i = 0; i < 500; i++)
+		{
+			if (le[i] < re[i])
+			{
+				for (int j = le[i]; j < re[i]; j++)
+				{
+					glColor3f(1, 0, 0);
+					glBegin(GL_POINTS);
+					glVertex2f(j, i);
+					glEnd();
+				}
+			}
+		}
+	}
+	glFlush();
+}
+
 
