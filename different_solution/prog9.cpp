@@ -80,6 +80,37 @@ void ScanMenu(int id)
 	}
 	else { exit(0); }
 	glutPostRedisplay();
-}
+}int main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("scan line");
+	init();
+	glutDisplayFunc(display);
+	glutCreateMenu(ScanMenu);
+	glutAddMenuEntry("scanfill", 1);
+	glutAddMenuEntry("clear", 2);
+	glutAddMenuEntry("exit", 3);
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+	glutMainLoop();
+	return 0;
+
+int main(int argc, char **argv)
+{
+	glutInit(&argc, argv);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("scan line");
+	init();
+	glutDisplayFunc(display);
+	glutCreateMenu(ScanMenu);
+	glutAddMenuEntry("scanfill", 1);
+	glutAddMenuEntry("clear", 2);
+	glutAddMenuEntry("exit", 3);
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+	glutMainLoop();
+	return 0;
+
 
 
